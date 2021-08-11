@@ -80,7 +80,7 @@ bot.action('all', async (ctx) => {
     await ctx.answerCbQuery()
     await ctx.editMessageText('Mobil Uygulama, Resmi Kanal, Film Dizi Kanal', Markup.inlineKeyboard([
         [Markup.button.url('Mobil', 'https://t.me/LeoTvHd'), Markup.button.url('TiaFilm', 'https://tiafilm.org/')],
-        [Markup.button.url('Yahoo', 'https://t.me/dsresmi')],
+        [Markup.button.url('Bot Resmi', 'https://t.me/dsresmi')],
         [Markup.button.callback('Geri', 'geri')]
     ]))
 })
