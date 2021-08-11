@@ -23,7 +23,7 @@ bot.hears(/selam/ig, async (ctx, next) => {
 });
 
 
-bot.command('yapımcı', async (ctx, next) => {
+bot.command('yapimci', async (ctx, next) => {
     
     await bot.telegram.sendDocument(ctx.chat.id, {
         source: './dosyalar/botsohbet.mp4'
@@ -47,7 +47,7 @@ bot.command('sitemiz', async (ctx, next) => {
     
 })
 
-bot.command('sitemiz', async (ctx, next) => {
+bot.command('film', async (ctx, next) => {
     
     await bot.telegram.sendDocument(ctx.chat.id, {
         source: './dosyalar/film.jpg'
@@ -66,10 +66,10 @@ bot.command('komut', async (ctx, next) => {
 
 
 async function searchMessage(ctx){
-    await ctx.reply('<b>Hangi arama motorunu kullanmak istiyorsunuz?</b>', {
+    await ctx.reply('<b>Katagorilerimiz.!</b>', {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
-            [Markup.button.url('Google', 'www.google.com')],
+            [Markup.button.url('Film Sitesi', 'www.tiafilm.org')],
             [ Markup.button.callback('Yok ben almıyım.', 'kapat'), Markup.button.callback('Diğer', 'all')]
         ])
     })
@@ -78,9 +78,9 @@ async function searchMessage(ctx){
 
 bot.action('all', async (ctx) => {
     await ctx.answerCbQuery()
-    await ctx.editMessageText('Yandex, DuckDuckGo, Yahoo ?', Markup.inlineKeyboard([
-        [Markup.button.url('Yandex', 'https://yandex.com.tr/'), Markup.button.url('DuckDuckGo', 'https://duckduckgo.com/')],
-        [Markup.button.url('Yahoo', 'https://www.yahoo.com/')],
+    await ctx.editMessageText('Mobil Uygulama, Resmi Kanal, Film Dizi Kanal', Markup.inlineKeyboard([
+        [Markup.button.url('Mobil', 'https://t.me/LeoTvHd'), Markup.button.url('TiaFilm', 'https://tiafilm.org/')],
+        [Markup.button.url('Yahoo', 'https://t.me/dsresmi')],
         [Markup.button.callback('Geri', 'geri')]
     ]))
 })
