@@ -26,9 +26,9 @@ bot.hears(/selam/ig, async (ctx, next) => {
 bot.command('yapimci', async (ctx, next) => {
     
     await bot.telegram.sendDocument(ctx.chat.id, {
-        source: './dosyalar/botsohbet.mp4'
+        source: './dosyalar/resmi.jpg'
     }, {
-        filename: 'botsohbet.mp4',
+        filename: 'resmi.jpg',
         caption: 'https://t.me/dsresmi'
     })
     return next()
@@ -69,7 +69,9 @@ async function searchMessage(ctx){
     await ctx.reply('<b>Katagorilerimiz.!</b>', {
         parse_mode: 'HTML',
         ...Markup.inlineKeyboard([
-            [Markup.button.url('Film Sitesi', 'www.tiafilm.org')],
+            [Markup.button.url('Tia Film Dizi', 'https://t.me/TiaFilmOrg')],
+			[Markup.button.url('LEO TV HD', 'https://t.me/LeoTvHd')],
+			[Markup.button.url('Bot Telegram', 'https://t.me/dsresmi')],
             [ Markup.button.callback('Yok ben almıyım.', 'kapat'), Markup.button.callback('Diğer', 'all')]
         ])
     })
@@ -78,8 +80,8 @@ async function searchMessage(ctx){
 
 bot.action('all', async (ctx) => {
     await ctx.answerCbQuery()
-    await ctx.editMessageText('Mobil Uygulama, Resmi Kanal, Film Dizi Kanal', Markup.inlineKeyboard([
-        [Markup.button.url('Mobil', 'https://t.me/LeoTvHd'), Markup.button.url('TiaFilm', 'https://tiafilm.org/')],
+    await ctx.editMessageText('Bot Resmi Site, Bot Resmi Kanal, Güncel Arşiv', Markup.inlineKeyboard([
+        [Markup.button.url('Mobil', 'https://dsshark.com/'), Markup.button.url('Güncel Arşiv', 'https://t.me/guncelarsiv')],
         [Markup.button.url('Bot Resmi', 'https://t.me/dsresmi')],
         [Markup.button.callback('Geri', 'geri')]
     ]))
