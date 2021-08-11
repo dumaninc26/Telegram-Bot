@@ -23,18 +23,41 @@ bot.hears(/selam/ig, async (ctx, next) => {
 });
 
 
-bot.command('botsohbet', async (ctx, next) => {
+bot.command('yapımcı', async (ctx, next) => {
     
     await bot.telegram.sendDocument(ctx.chat.id, {
         source: './dosyalar/botsohbet.mp4'
     }, {
         filename: 'botsohbet.mp4',
-        caption: 'https://t.me/botsohbet'
+        caption: 'https://t.me/dsresmi'
     })
     return next()
     
 })
 
+bot.command('sitemiz', async (ctx, next) => {
+    
+    await bot.telegram.sendDocument(ctx.chat.id, {
+        source: './dosyalar/site.jpg'
+    }, {
+        filename: 'site.jpg',
+        caption: 'https://www.dsshark.com/'
+    })
+    return next()
+    
+})
+
+bot.command('sitemiz', async (ctx, next) => {
+    
+    await bot.telegram.sendDocument(ctx.chat.id, {
+        source: './dosyalar/film.jpg'
+    }, {
+        filename: 'film.jpg',
+        caption: 'https://www.tiafilm.org/'
+    })
+    return next()
+    
+})
 
 bot.command('komut', async (ctx, next) => {
     await ctx.telegram.sendMessage(ctx.chat.id, `<b>${ctx.from.first_name}</b>`, { parse_mode: 'HTML' })
@@ -89,7 +112,7 @@ function getUserLink(user) {
 }
 
 
-bot.command("who", async (ctx) => {
+bot.command("kimim", async (ctx) => {
     const Id = ctx.message.reply_to_message ? ctx.message.reply_to_message.from.id : ctx.message.from.id;
     const messageId = ctx.message.reply_to_message ? ctx.message.reply_to_message.message_id : null;
     const getUserInfo = await ctx.telegram.getChat(Id);
